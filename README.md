@@ -6,8 +6,22 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 `SVProgressHUD` is a clean and easy-to-use HUD meant to display the progress of an ongoing task on iOS and tvOS.
-
 ![SVProgressHUD](http://f.cl.ly/items/2G1F1Z0M0k0h2U3V1p39/SVProgressHUD.gif)
+
+###[+]增加了实际需要的Progress-HUD
+![SVProgressHUD](https://github.com/mjf1986/Languo-SVProgressHUD/blob/master/2016-07-04%2016_14_58.gif?raw=true)
+####使用方法：
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleLight];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD setDefaultAnimationType:SVProgressHUDAnimationTypeFlatLangGuo];
+    [SVProgressHUD showWithStatus:@"正在为您登录…"];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // time-consuming task
+        sleep(2);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
 
 ## Demo		
 
